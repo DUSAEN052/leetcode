@@ -1,25 +1,16 @@
 public class Solution {
     public int singleNumber(int[] nums) {
-        
-        HashMap<Integer, String> hm = new HashMap<Integer, String>();
-        Integer output = 0;
-        
+        Set<Integer> mySet = new HashSet<Integer>();
         for (int i = 0; i < nums.length; i++) {
-            
-            int num = nums[i];
-            
-            if (hm.containsKey(num) == false) {
-                hm.put(num, "a");
-            }
-            else {
-                hm.remove(num);
+            if (!mySet.contains(nums[i])) {
+                mySet.add(nums[i]);
+            } else {
+                mySet.remove(nums[i]);
             }
         }
-        
-        for (Integer key : hm.keySet()){
-            return key;
+        for(Integer num : mySet) {
+            return num;
         }
-        
-        return output;
+        return 0;
     }
 }

@@ -13,12 +13,10 @@ public class Solution {
             }
             else if (i%3 == 0) {
                 output.add("Fizz");
-            }
-            else {
+            } else {
                 output.add(Integer.toString(i));
             }
-        }
-        
+        }       
         return output;
     }
 }
