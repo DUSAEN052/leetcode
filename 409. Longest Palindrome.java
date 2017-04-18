@@ -4,11 +4,11 @@ public class Solution {
         boolean odd = false;
         boolean single = false;
         int len = 0;
-        for ( int i = 0; i < s.length(); i++) {
-            arr[s.charAt(i) - 'A'] +=1;
+        for (int i = 0; i < s.length(); i++) {
+            arr[s.charAt(i) - 'A'] += 1;
         }
         for (int j = 0; j < 58; j++) {
-            if (arr[j]%2 == 0) {
+            if (arr[j] % 2 == 0) {
                 len = len + arr[j];
             } else {
                 odd = true;

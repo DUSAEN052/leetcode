@@ -14,11 +14,7 @@ public class Solution {
             return true;
         }
         
-        if (isBalanced(root.left) == false || isBalanced(root.right) ==false ){
-            return false;
-        }
-        
-        if (maxHeight(root) == -1) {
+        if (isBalanced(root.left) == false || isBalanced(root.right) == false || maxHeight(root) == -1){
             return false;
         }
        
