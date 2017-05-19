@@ -6,6 +6,7 @@ public class Solution {
         int max = Math.max(x1.length(), y1.length());
         String x2 = addZero(x1, max - x1.length());
         String y2 = addZero(y1, max - y1.length());
+        
         for (int i = 0; i < max; i++) {
             if(x2.charAt(i) != y2.charAt(i)) {
                 output+=1;
