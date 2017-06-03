@@ -1,32 +1,41 @@
 public class Solution {
     public String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
-        int n1 = 0;
-        int n2 = 0;
-        int k = 1;
-        for (int i = num1.length() - 1; i >= 0; i--) {
-            n1 += (num1.charAt(i) - '0') * k;
-            System.out.println(n1 + " k " + " i " + i);
-            k = k * 10;
+        int len1 = num1.length() - 1;
+        int len2 = num2.length() - 1;
+        int carry = 0;
+        int sum = 0;
+        
+        while (len1 >= 0 || len2 >= 0) {
+            int one = 0;
+            int two = 0;
+            
+            if (len1 >= 0) {
+                one = num1.charAt(len1) - '0';
+            } else {
+                one = 0;
+            }
+            if (len2 >= 0) {
+                two = num2.charAt(len2) - '0';
+            } else {
+                two = 0;
+            }
+            if (sum > 9) {
+                carry = 1;
+            } else {
+                carry = 0;
+            }
+            sum = one + two + carry;
+            sb.insert(0, sum%10);
+            carry = sum/10;
+            len1 --;
+            len2 --;
         }
-        k = 1;
-        for (int j = num2.length() - 1; j >= 0; j--) {
-            n2 += (num2.charAt(j) - '0') * k;
-            k = k * 10;
+        
+        if (carry == 1) {
+            sb.insert(0, 1);
         }
-        System.out.println(n1 +" : " + n2);
-        int s = n1 + n2;
-        if (s == 0) {
-            sb.append('0');
-            return sb.toString();
-        }
-        System.out.println("s : " + s);
-        while (s != 0) {
-            sb.append(new Integer(s % 10));
-            s = s / 10;
-        }
-        sb.reverse();
-        System.out.println("sb : " + sb);
+        
         return sb.toString();
     }
 }
