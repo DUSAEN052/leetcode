@@ -16,12 +16,10 @@ public class Solution {
     }
     
     public boolean check(TreeNode left, TreeNode right) {
-        if (left == null || right == null) {
-            if (left == null && right == null) {
-                return true;
-            } else {
-                return false;
-            }
+        if (left == null && right == null) {
+            return true;
+        } else if (left == null || right == null) {
+            return false;
         }
         
         if (left.val != right.val) {

@@ -28,7 +28,6 @@ public class Solution {
         }
         
         Collections.sort(ls);
-        System.out.println(ls);
         min = ls.get(0);
         String[] output = hs.get(min).toArray(new String[hs.get(min).size()]);
         

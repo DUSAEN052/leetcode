@@ -1,11 +1,11 @@
 public class Solution {
     public int climbStairs(int n) {
-        HashMap<Integer, Integer> hs = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> hs = new HashMap<Integer, Integer>();
         int output = count(n, hs);
         return output;
     }
     
-    public int count(int curr, HashMap<Integer, Integer> hs) {
+    public int count(int curr, Map<Integer, Integer> hs) {
         int val = 0;
         
         if (hs.containsKey(curr)) {
@@ -18,7 +18,7 @@ public class Solution {
             } else if (curr == 1) {
                 val = 1;
             } else {
-            val = count(curr - 1, hs) + count(curr - 2, hs);
+                val = count(curr - 1, hs) + count(curr - 2, hs);
             }
             hs.put(curr, val);
         }

@@ -1,7 +1,7 @@
 public class Solution {
     public int rob(int[] nums) {
         int output = 0;
-        HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> hm = new HashMap<Integer, Integer>();
         if(nums.length == 0) {
             return 0;
         }
@@ -10,11 +10,12 @@ public class Solution {
         return output;
     }
     
-    public int house(int[] nums, int index, HashMap<Integer, Integer> hm) {
+    public int house(int[] nums, int index, Map<Integer, Integer> hm) {
         int sum = 0;
         if (index >= nums.length) {
             return sum;
         }
+        
         if (hm.containsKey(index)) {
             return hm.get(index);
         } else {
