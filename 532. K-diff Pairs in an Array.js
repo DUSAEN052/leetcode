@@ -33,9 +33,7 @@ var findPairs = function(nums, k) {
         let c = j - k;
         
         if (aset.has(c)) {
-            if (arr.has(c) && arr.get(c) == j || arr.has(j) && arr.get(j) == c) {
-                
-            } else {
+            if (!(arr.has(c) && arr.get(c) == j || arr.has(j) && arr.get(j) == c)) {
                 arr.set(c, j);
             }
         }
@@ -45,9 +43,7 @@ var findPairs = function(nums, k) {
         let c = h + k;
         
         if (aset.has(c)) {
-            if (arr.has(c) && arr.get(c) == h|| arr.has(h) && arr.get(h) == c) {
-                
-            } else {
+            if (!(arr.has(c) && arr.get(c) == h|| arr.has(h) && arr.get(h) == c)) {
                 arr.set(c, h);
             }
         }

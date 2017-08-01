@@ -15,12 +15,12 @@ var convertBST = function(root) {
     return root;
     
         function loop(root) {
-        if (root) {    
-            loop(root.right);
-            let node = root.val;
-            root.val = node + sum;
-            sum = root.val;
-            loop(root.left);
-        }
+            if (root) {    
+                loop(root.right);
+                let node = root.val;
+                root.val = node + sum;
+                sum = root.val;
+                loop(root.left);
+            }
     };
 }
