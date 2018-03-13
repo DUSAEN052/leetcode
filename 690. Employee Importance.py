@@ -30,4 +30,3 @@ class Solution:
                     weight += employee.importance
                     sub.extend(employee.subordinates)
         return weight
-        
