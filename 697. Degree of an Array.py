@@ -1,20 +1,18 @@
+from collections import Counter
+
 class Solution:
     def findShortestSubArray(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        group = []
-        c = collections.Counter(nums)
-        modes = c.most_common()
+        modes = Counter(nums).most_common()
         mode = modes[0][1]
         degrees = []
         
-        for i in range(len(modes)):
-            if modes[i][1] == mode:
-                degrees.append(modes[i][0])
-            else:
-                break
+        for m in modes:
+            if m[1] == mode:
+                degrees.append(m[0])
         
         smallest = float("inf")
         
@@ -25,4 +23,3 @@ class Solution:
             smallest = min(smallest, length)
         
         return smallest
-    
