@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Solution:
     def containsNearbyDuplicate(self, nums, k):
         """
@@ -5,12 +7,12 @@ class Solution:
         :type k: int
         :rtype: bool
         """
-        hmap = collections.defaultdict(list)
+        hmap = defaultdict(list)
         i = 0
         
         for integer in nums:
             hmap[integer].append(i)
-            if (hmap[integer]):
+            if hmap[integer]:
                 for num in range(len(hmap[integer])):
                     if abs(hmap[integer][num] - i) <= k and abs(hmap[integer][num] - i) != 0:
                         return True
