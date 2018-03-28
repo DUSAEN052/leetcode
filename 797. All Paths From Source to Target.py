@@ -5,14 +5,14 @@ class Solution:
         :rtype: List[List[int]]
         """        
         def findPath(graph, curr, path, output):
-            np = [] + path
-            np.append(curr)
+            new_path = path[:]
+            new_path.append(curr)
             
             if not graph[curr]:
-                output.append(np[:])
+                output.append(new_path[:])
             
             for nums in graph[curr]:
-                findPath(graph, nums, np, output)
+                findPath(graph, nums, new_path, output)
         
         output = []
         findPath(graph, 0, [], output)
