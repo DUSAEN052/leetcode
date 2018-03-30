@@ -4,7 +4,7 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        low , high = 0, len(nums) - 1
+        low, high = 0, len(nums) - 1
         
         while low < high:
             mid = low + (high - low) // 2
