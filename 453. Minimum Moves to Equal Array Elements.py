@@ -4,7 +4,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        ssmall = min(nums)
-        output = 0        
+        small = min(nums)        
             
         return sum([num - small for num in nums])
