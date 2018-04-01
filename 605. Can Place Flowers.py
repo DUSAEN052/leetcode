@@ -14,6 +14,7 @@ class Solution(object):
             elif flowerbed[i] == 0 and flowerbed[i + 1] == 0:
                 flowerbed[i + 1] = 5
                 count += 1
+            
             if flowerbed[i] == 5 and flowerbed[i + 1] == 1:
                 count -= 1
         

@@ -4,9 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        sort_nums = list(set(nums))
-        sort_nums.sort()
-
+        sort_nums = sorted(list(set(nums)))
+        
         if len(sort_nums) < 3:
             return sort_nums[-1]
         

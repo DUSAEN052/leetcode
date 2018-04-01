@@ -7,7 +7,6 @@ class Solution(object):
         words = s.split()
         
         if words:
-            size = len(words.pop())
-            return size
+            return len(words.pop())
         else:
             return 0
