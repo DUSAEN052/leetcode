@@ -7,16 +7,12 @@ class Solution:
         visited = set()
         
         while True:
-            count = 0
-            
-            for num in str(n):
-                count += int(num) * int(num)
+            count = sum([int(num) * int(num) for num in str(n)])
             
             if count in visited:
                 return False
+            elif count == 1:
+                return True
             else:
-                if count == 1:
-                    return True
-                
                 visited.add(count)
                 n = count

@@ -8,11 +8,7 @@ class Solution(object):
         transform = set()
         
         for word in words:
-            gen = ""
-            
-            for i in range(len(word)):
-                gen = gen + code[ord(word[i]) - ord('a')]
-            
+            gen = ''.join([code[ord(word[i]) - ord('a')] for i in range(len(word))])
             transform.add(gen)
         
         return len(transform)
