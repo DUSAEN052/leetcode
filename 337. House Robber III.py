@@ -33,4 +33,3 @@ class Solution:
             return total
         
         return loot(root, {})
-                
