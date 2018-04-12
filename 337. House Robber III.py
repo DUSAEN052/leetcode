@@ -14,23 +14,23 @@ class Solution:
         def loot(root, hm):
             left, right, total = 0, 0, 0
             
-            if root in hm:
+            if not root:
+                return 0
+            elif root in hm:
                 return hm[root]
-            if root:
+            elif root:
                 robbed = loot(root.left, hm) + loot(root.right, hm)
                 if root.left:
                     left = loot(root.left.left, hm) + loot(root.left.right, hm)
                 if root.right:
                     right = loot(root.right.left, hm) + loot(root.right.right, hm)
+                
                 notrobbed = left + right + root.val
-            elif not root:
-                return 0
-            
+
             total = max(robbed, notrobbed)
             hm[root] = total
+            
             return total
         
-        mem = {}
-        money = loot(root, mem)
-        
-        return money
+        return loot(root, {})
+                
