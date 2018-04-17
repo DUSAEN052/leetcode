@@ -20,7 +20,6 @@ class Solution:
         total = 0
         
         for i in range(len(s)):
-            total += build(s, i, i)
-            total += build(s, i, i + 1)
+            total += build(s, i, i) + build(s, i, i + 1)
         
         return total
