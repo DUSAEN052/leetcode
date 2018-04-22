@@ -14,9 +14,8 @@ class Solution:
         def invert(root):
             if not root:
                 return root
-            tmp = root.left
-            root.left = root.right
-            root.right = tmp
+            
+            root.left, root.right = root.right, root.left
             invert(root.left)
             invert(root.right)
             

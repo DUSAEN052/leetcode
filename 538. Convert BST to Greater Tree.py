@@ -14,10 +14,12 @@ class Solution:
         def convert(root):
             if not root:
                 return None
+            
             convert(root.right)
             self.sm += root.val
             root.val = self.sm
             convert(root.left)
+            
             return root
         
         self.sm = 0

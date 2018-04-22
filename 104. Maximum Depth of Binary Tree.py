@@ -14,9 +14,7 @@ class Solution:
         def findDepth(root):
             if not root:
                 return 0
-            left = 1 + findDepth(root.left)
-            right = 1 + findDepth(root.right)
             
-            return max(left,right)
+            return 1 + max(findDepth(root.left), findDepth(root.right))
         
         return findDepth(root)
