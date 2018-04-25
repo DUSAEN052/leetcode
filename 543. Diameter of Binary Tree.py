@@ -22,9 +22,6 @@ class Solution:
         
         self.greatest = 0
         
-        if not root:
-            return 0
-        
         great(root)
         
         return self.greatest

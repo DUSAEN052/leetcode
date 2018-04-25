@@ -7,7 +7,7 @@ class Solution:
         output = []
         count = 0
         
-        for i, num in enumerate(nums):
+        for i in range(len(nums)):
             if nums[i] == 1:
                 count += 1
             else:
