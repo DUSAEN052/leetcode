@@ -5,7 +5,7 @@ class Solution:
         :rtype: str
         """
         output = ""
-        vowel = ('a', 'e', 'i', 'o', 'u')
+        vowel = {'a', 'e', 'i', 'o', 'u'}
         
         for i, word in enumerate(S.split(), 1):
             if word[0].lower() not in vowel:

@@ -9,8 +9,6 @@ class Solution:
         strp = [word.lower().strip("!?',;.") for word in paragraph.split()]
         counted = Counter(strp)
         
-        for item in counted:
-            if item in banned:
-                counted[item] = 0
+        counted = {k : v for k,v in counted.items() if k not in banned}
         
         return max(counted, key=counted.get)
