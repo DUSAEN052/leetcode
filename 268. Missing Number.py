@@ -4,10 +4,6 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        nums.sort()
+        num = len(nums)
         
-        for i in range(len(nums)):
-            if nums[i] != i:
-                return i
-        
-        return len(nums)
+        return num * (num + 1) // 2 - sum(nums)

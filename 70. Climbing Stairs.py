@@ -9,14 +9,13 @@ class Solution:
             
             if curr in memo:
                 return memo[curr]
-            if curr == n:
+            elif curr == n:
                 return 1
             elif curr > n:
                 return 0
             
-            count += climb(n, curr + 1, memo) + climb(n, curr + 2, memo)
-            memo[curr] = count
+            memo[curr] = climb(n, curr + 1, memo) + climb(n, curr + 2, memo)
             
-            return count
+            return memo[curr]
         
         return climb(n, 0, {})
