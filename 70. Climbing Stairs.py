@@ -5,8 +5,6 @@ class Solution:
         :rtype: int
         """
         def climb(n, curr, memo):
-            count = 0
-            
             if curr in memo:
                 return memo[curr]
             elif curr == n:

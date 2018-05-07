@@ -18,7 +18,6 @@ class Solution:
                 return True
             elif not t or not s:
                 return False
-            if s.val == t.val:
-                return s.val == t.val and same(s.left, t.left) and same(s.right, t.right)
+            return s.val == t.val and same(s.left, t.left) and same(s.right, t.right)
 
         return find(s, t)
