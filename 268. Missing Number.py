@@ -4,6 +4,10 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        num = len(nums)
+        n = set(nums)
         
-        return num * (num + 1) // 2 - sum(nums)
+        for i in range(len(nums)):
+            if i not in n:
+                return i
+        
+        return len(nums)
