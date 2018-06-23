@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 class Solution:
     def frequencySort(self, s):
         """
@@ -6,14 +6,11 @@ class Solution:
         :rtype: str
         """
         count = Counter(s)
-        freq = {}
+        freq = defaultdict(list)
         output = ''
         
         for item in count:
-            if count[item] in freq:
-                freq[count[item]].append(item)
-            else:
-                freq[count[item]] = [item]
+            freq[count[item]].append(item)
         
         freqcount = sorted(list(freq.keys()))[::-1]
         

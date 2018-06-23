@@ -10,12 +10,10 @@ class Solution:
         output = []
         t = Counter(T)
         
-        
         for i, letter in enumerate(S, 0):
             order[i] = letter
         
-        for i in range(len(order)):
-            output.append(order[i] * t[order[i]])
+        output = [order[i] * t[order[i]] for i in range(len(order))]
         
         for letter in T:
             if letter not in S:
