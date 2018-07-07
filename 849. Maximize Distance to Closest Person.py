@@ -11,7 +11,6 @@ class Solution:
         for i in range(len(seats)):
             if seats[i] == 0:
                 dist += 1
-            
             elif seats[i] == 1:
                 maxc = max(dist, maxc)
                 dist = 0

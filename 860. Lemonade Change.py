@@ -23,17 +23,14 @@ class Solution:
                     change -= 20
                     bank -= 20
                     ddict[20] -= 1
-
                 elif change >= 10 and ddict[10] > 0:
                     change -= 10
                     bank -= 10
                     ddict[10] -= 1
-
                 elif change >= 5 and ddict[5] > 0:
                     change -= 5
                     bank -= 5
                     ddict[5] -= 1
-
                 else:
                     return False
 
