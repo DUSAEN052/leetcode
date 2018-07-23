@@ -7,11 +7,7 @@ class Solution:
         output = []
 
         for i in range(len(A[0])):
-            tmp = []
-
-            for a in A:
-                tmp.append(a[i])
-            
+            tmp = [a[i] for a in A]
             output.append(tmp)
 
         return output
