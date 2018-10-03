@@ -6,13 +6,8 @@ class Solution:
         :type words: List[str]
         :rtype: str
         """
-        convLP = ""
         sortedWords = sorted(words, key=len)
-        
-        for letter in licensePlate:
-            if letter.isalpha():
-                convLP += letter.lower()
-        
+        convLP = "".join([letter.lower() for letter in licensePlate if letter.isalpha()])
         countedLP = Counter(convLP)
         
         for word in sortedWords:
@@ -20,8 +15,7 @@ class Solution:
             count = 0
             
             for counted in countedLP:
-                if counted in cword:
-                    if cword[counted] >= countedLP[counted]:
-                        count += 1
+                if counted in cword and cword[counted] >= countedLP[counted]:
+                    count += 1
                 if count == len(countedLP):
                     return word
