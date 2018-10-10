@@ -1,19 +1,19 @@
-from collections import Counter
+from collections import defaultdict
 class Solution:
     def leastBricks(self, wall):
         """
         :type wall: List[List[int]]
         :rtype: int
         """
-        tracker = []
+        counter = defaultdict(int)
         
         for row in wall:
             edge = 0
             
             for i in range(len(row) - 1):
                 edge += row[i]
-                tracker.append(edge)
+                counter[edge] += 1
         
-        if not tracker:
+        if not counter:
             return len(wall)
-        return len(wall) - (max(Counter(tracker).values()))
+        return len(wall) - (max(counter.values()))
