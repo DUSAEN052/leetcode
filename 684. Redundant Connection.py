@@ -12,11 +12,10 @@ class Solution:
                 return True
 
             for child in tree[root]:
-                visit = set(visited)
-                
-                if child not in visit:
-                    if dfs(tree, child, target, visit):
+                if child not in visited and dfs(tree, child, target, visited):
                         return True
+            
+            visited.remove(root)     
             return False
                 
         tree = defaultdict(set)
