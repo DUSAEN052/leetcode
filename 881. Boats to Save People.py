@@ -5,11 +5,11 @@ class Solution:
         :type limit: int
         :rtype: int
         """
-        ppl = sorted(people)
+        sortedPeople = sorted(people)
         count, left, right = 0, 0, len(people) - 1
         
         while left <= right:
-            if ppl[left] + ppl[right] <= limit:
+            if sortedPeople[left] + sortedPeople[right] <= limit:
                 left += 1
             right -= 1
             count += 1
