@@ -16,12 +16,14 @@ class Solution:
         def dfs(root, L, R):
             if not root:
                 return 0
-            root_val = 0
+            root_val, left, right = 0, 0, 0
             
             if root.val >= L and root.val <= R:
                 root_val += root.val
-            left = dfs(root.left, L, R)
-            right = dfs(root.right, L, R)
+            if L < root.val:
+                left += dfs(root.left, L, R)
+            if R > root.val:
+                right += dfs(root.right, L, R)
             
             return root_val + left + right
         
