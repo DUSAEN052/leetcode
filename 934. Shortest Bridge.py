@@ -6,13 +6,9 @@ class Solution:
         :rtype: int
         """
         def border(section, x, y):
-            if x == 0 or x == len(section) - 1:
+            if x == 0 or x == len(section) - 1 or y == 0 or y == len(section[0]) - 1:
                 return False
-            if y == 0 or y == len(section[0]) - 1:
-                return False
-            if section[x + 1][y] and section[x - 1][y] and section[x][y + 1] and section[x][y - 1]:
-                return True
-            return False
+            return section[x + 1][y] and section[x - 1][y] and section[x][y + 1] and section[x][y - 1]
         
         def flood(section, x, y, area):
             if x >= 0 and x < len(section) and y >= 0 and y < len(section[0]) and section[x][y]:
@@ -21,8 +17,8 @@ class Solution:
                 if not border(section, x, y):
                     area.append((x, y))
                 
-                for d in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-                    flood(section, x + d[0], y + d[1], area)
+                for p, q in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                    flood(section, x + p, y + q, area)
             
         islands, island1 = A[:], deque()
         visited = set()
@@ -43,14 +39,20 @@ class Solution:
             while island1:
                 pos = island1.popleft()
                 
-                if pos in visited or pos[0] < 0 or pos[0] >= len(islands) or pos[1] < 0 or pos[1] >= len(islands[0]):
+                if (
+                    pos in visited 
+                    or pos[0] < 0 
+                    or pos[0] >= len(islands) 
+                    or pos[1] < 0 
+                    or pos[1] >= len(islands[0])
+                   ):
                     continue
                 if islands[pos[0]][pos[1]]:
                     return count - 1
                 visited.add(pos)
                 
-                for d in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-                    level.append((d[0] + pos[0], d[1] + pos[1]))
+                for p, q in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                    level.append((p + pos[0], q + pos[1]))
             
             count += 1
             island1 = level
