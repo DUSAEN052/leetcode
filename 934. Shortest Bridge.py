@@ -19,20 +19,20 @@ class Solution:
                 
                 for p, q in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                     flood(section, x + p, y + q, area)
-            
-        islands, island1 = A[:], deque()
-        visited = set()
-        output = float("inf")
         
-        for i in range(len(islands)):
-            if island1:
-                break
-            for k in range(len(islands[0])):
-                if islands[i][k] == 1:
-                    flood(islands, i, k, island1)
-                    break
+        def find_island(island, dq):
+            for i in range(len(islands)):
+                for k in range(len(islands[0])):
+                    if islands[i][k] == 1:
+                        flood(islands, i, k, dq)
+                        return dq
+            
+        islands = A[:]
+        visited = set()
+        output = float("inf")                    
         count = 0
-
+        island1 = find_island(islands, deque())
+        
         while island1:
             level = deque()
             
