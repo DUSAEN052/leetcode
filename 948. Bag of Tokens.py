@@ -7,7 +7,7 @@ class Solution:
         :rtype: int
         """
         T = deque(sorted(tokens))
-        mx, points = 0, 0
+        maxPoints, points = 0, 0
         
         while T and (T[0] <= P or points):
             if T[0] <= P:
@@ -17,6 +17,6 @@ class Solution:
                 if points >= 1 and T[-1] > P:
                     P += T.pop()
                     points -= 1
-            mx = max(mx, points)
+            maxPoints = max(maxPoints, points)
         
-        return mx
+        return maxPoints
