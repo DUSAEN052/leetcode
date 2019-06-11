@@ -1,15 +1,12 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         output = []
-        
-        for num in nums:
-            self.find_permute(nums, [num], set([num]), output)
+        self.find_permute(nums, [], set(), output)
         return output
     
     def find_permute(self, nums, arr, visited, permutations):
         if len(arr) == len(nums):
-            permutation = arr[:]
-            permutations.append(permutation)
+            permutations.append(arr[:])
         else:
             for num in nums:
                 if num not in visited:
